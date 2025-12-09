@@ -332,3 +332,22 @@ body, html {
 .dropdown-content li:hover {
     background-color: #f5f5f5;
 }
+ /* --- Responsive Styles for Mobile --- */
+   @media (max-width: 768px) {
+       .app-container {
+           flex-direction: column;
+       }
+  
+       .sidebar, .profile-sidebar {
+           display: none; /* Hide side panels on mobile */
+       }
+  
+       .chat-area-container {
+          width: 100%; /* Chat takes full screen */
+           height: 100vh;
+       }
+  
+       .message-area {
+           padding: 10px;
+       }
+   }
