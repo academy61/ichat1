@@ -1,0 +1,334 @@
+body, html {
+    font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #dadbd3; /* The green-grey background behind the app */
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    max-width: 1600px; /* Max width like WhatsApp Web */
+    margin: 0 auto;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.06), 0 2px 5px 0 rgba(0,0,0,.2);
+}
+
+/* Left Sidebar for Chat List */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    min-width: 280px;
+    max-width: 450px;
+    border-right: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: #ededed;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.sidebar-search {
+    padding: 10px;
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar-search input {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+
+.contact-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* Right Main Chat Area */
+.chat-area-container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    background-color: #e5ddd5; /* WhatsApp chat background pattern color */
+    background-image: url('https://www.transparenttextures.com/patterns/lined-paper.png'); /* Subtle pattern */
+}
+
+.chat-header {
+    background-color: #ededed;
+    color: #333;
+    padding: 10px 16px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-bottom: 1px solid #ddd;
+}
+
+.chat-header h3 {
+    margin: 0;
+}
+
+.message-area {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 65%;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.message.sent {
+    background-color: #dcf8c6; /* Sent message color */
+    align-self: flex-end;
+}
+
+.message.received {
+    background-color: #fff; /* Received message color */
+    align-self: flex-start;
+}
+
+.message-input {
+    display: flex;
+    padding: 10px 16px;
+    background-color: #f0f0f0;
+}
+
+.message-input input {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.message-input button {
+    background-color: #075e54; /* WhatsApp send button color */
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Circular button */
+    width: 44px;
+    height: 44px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 44px;
+    text-align: center;
+    outline: none;
+}
+
+.message-input button:hover {
+    background-color: #054d44;
+}
+
+/* Styles for Contact List Items */
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    border-bottom: 1px solid #f2f2f2;
+    cursor: pointer;
+}
+
+.contact:hover {
+    background-color: #f5f5f5;
+}
+
+.contact img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.contact-info {
+    flex-grow: 1;
+}
+
+.contact-name {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.contact-last-message {
+    margin: 4px 0 0;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Updated Chat Header for Profile Button */
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#profile-button {
+    background: none;
+    border: 1px solid #075e54;
+    color: #075e54;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Profile Sidebar Styles */
+.profile-sidebar {
+    width: 0;
+    flex-shrink: 0;
+    background-color: #f7f7f7;
+    border-left: 1px solid #ddd;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 18px 16px;
+    background-color: #ededed;
+}
+
+#close-profile-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.profile-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.profile-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.profile-status {
+    color: #888;
+    margin-top: 5px;
+}
+
+.profile-details {
+    margin-top: 30px;
+    text-align: left;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.profile-about-header {
+    color: #008069;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.profile-about-text {
+    font-size: 1rem;
+    margin: 0;
+}
+
+
+/* Layout adjustment when profile is visible */
+.app-container.profile-visible .chat-area-container {
+    width: 45%; /* Adjust width when profile is open */
+}
+
+.app-container.profile-visible .profile-sidebar {
+    width: 25%; /* Give width to profile sidebar */
+}
+
+/* --- Settings Menu Styles --- */
+.sidebar-header {
+    justify-content: space-between;
+}
+
+.sidebar-menu {
+    position: relative;
+}
+
+#menu-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: #54656f;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    padding: 5px 0;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-content li {
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.dropdown-content li:hover {
+    background-color: #f5f5f5;
+}

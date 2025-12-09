@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iChat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Sidebar for Chat List -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Chats</h3>
+                <div class="sidebar-menu">
+                    <button id="menu-button">...</button>
+                    <div id="settings-dropdown" class="dropdown-content">
+                        <ul>
+                            <li id="settings-button">Settings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-search">
+                <input type="text" placeholder="Search or start new chat">
+            </div>
+            <div class="contact-list">
+                    <div class="contact">
+                        <img src="https://i.pravatar.cc/50?img=1" alt="Avatar">
+                        <div class="contact-info">
+                            <h4 class="contact-name">Alice</h4>
+                            <p class="contact-last-message">Hey, how are you?</p>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <img src="https://i.pravatar.cc/50?img=2" alt="Avatar">
+                        <div class="contact-info">
+                            <h4 class="contact-name">Bob</h4>
+                            <p class="contact-last-message">See you tomorrow!</p>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <img src="https://i.pravatar.cc/50?img=3" alt="Avatar">
+                        <div class="contact-info">
+                            <h4 class="contact-name">Charlie</h4>
+                            <p class="contact-last-message">That's a great idea.</p>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <img src="https://i.pravatar.cc/50?img=4" alt="Avatar">
+                        <div class="contact-info">
+                            <h4 class="contact-name">Diana</h4>
+                            <p class="contact-last-message">OK, sounds good.</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Right Main Chat Area -->
+        <div class="chat-area-container">
+            <div class="chat-header">
+                <h3>iChat Conversation</h3>
+                <button id="profile-button">Profile</button>
+            </div>
+            <div class="message-area" id="message-area">
+                <!-- Messages will be appended here -->
+            </div>
+            <div class="message-input">
+                <input type="text" id="message-input" placeholder="Type a message...">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+
+        <!-- Far Right Sidebar for Profile -->
+        <div class="profile-sidebar">
+            <div class="profile-header">
+                <button id="close-profile-button">X</button>
+                <h3>Contact Info</h3>
+            </div>
+            <div class="profile-content">
+                <img src="https://i.pravatar.cc/150?img=5" alt="Profile Avatar" class="profile-avatar">
+                <h4 class="profile-name">Alex Doe</h4>
+                <p class="profile-status">Online</p>
+                <div class="profile-details">
+                    <p class="profile-about-header">About</p>
+                    <p class="profile-about-text">Just living the dream.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
