@@ -14,7 +14,7 @@ AI_SENDER_ID = 'gemini_ai'
 def send_ai_reply(original_message):
     """Sends a delayed, canned reply from the AI."""
     print(f"Sending AI reply to: {original_message}")
-    ai_reply_text = "Hii thiss is Manoj thank you for youing ichat"
+    ai_reply_text = ""
     reply_data = {'text': ai_reply_text, 'senderId': AI_SENDER_ID}
     messages.append(reply_data)
     socketio.emit('message', reply_data) # Use socketio.emit for global context
